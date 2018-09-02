@@ -1,0 +1,20 @@
+{
+  "alexaSkillId": "",
+  "googleActionId": "",
+  "dashbot" : {
+    "alexa" : "api_key"
+  },
+  "googleAnalytics" : {
+    "trackingCode" : "api_key"
+  },
+  "db": {
+    "type": "dynamodb",
+    "tableName": "CreepyDoll",
+    "awsConfig": {
+      "region": "us-region-1"
+    }
+  },
+  "s3": {
+    "url": ""
+  }
+}
