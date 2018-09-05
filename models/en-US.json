@@ -80,6 +80,61 @@
       }
     }
   },
+  "dialogflow": {
+    "intents": [
+      {
+        "name": "DefaultFallbackIntent",
+        "auto": true,
+        "contexts": [],
+        "responses": [
+          {
+            "resetContexts": false,
+            "action": "input.unknown",
+            "affectedContexts": [],
+            "parameters": [],
+            "messages": [
+              {
+                "type": 0,
+                "lang": "en",
+                "speech": [
+                  "I didn't get that. Can you say it again?",
+                  "I missed what you said. Say it again?",
+                  "Sorry, could you say that again?",
+                  "Sorry, can you say that again?",
+                  "Can you say that again?",
+                  "Sorry, I didn't get that.",
+                  "Sorry, what was that?",
+                  "One more time?",
+                  "What was that?",
+                  "Say that again?",
+                  "I didn't get that.",
+                  "I missed that."
+                ]
+              },
+              {
+                "type": 0,
+                "lang": "es",
+                "speech": [
+                  "Ups, no he entendido a que te refieres.",
+                  "¿Podrías repetirlo, por favor?",
+                  "¿Disculpa?",
+                  "¿Decías?",
+                  "¿Cómo?"
+                ]
+              }
+            ],
+            "defaultResponsePlatforms": {},
+            "speech": []
+          }
+        ],
+        "priority": 500000,
+        "webhookUsed": true,
+        "webhookForSlotFilling": false,
+        "fallbackIntent": true,
+        "events": []
+      }
+    ]
+  },
   "intents": [
     {
       "name": "LaunchIntent",
@@ -114,7 +169,20 @@
         "alarm me",
         "i am alarmed",
         "i'm alarmed"
-      ]
+      ],
+      "dialogflow": {
+        "auto": false,
+        "contexts": [],
+        "priority": 500000,
+        "webhookUsed": true,
+        "webhookForSlotFilling": false,
+        "fallbackIntent": false,
+        "events": [
+          {
+            "name": "GOOGLE_ASSISTANT_WELCOME"
+          }
+        ]
+      }
     },
     {
       "name": "StartOverIntent",
@@ -361,10 +429,7 @@
         "how do i ask for a game",
         "how do i play this",
         "how can i play this"
-      ],
-      "dialogflow": {
-        "id": "e66f2145-ac51-49ea-a27b-abd115d79e03"
-      }
+      ]
     },
     {
       "name": "CancelIntent",
@@ -374,7 +439,20 @@
       "phrases": [
         "cancel",
         "cancel it"
-      ]
+      ],
+      "dialogflow": {
+        "auto": false,
+        "contexts": [],
+        "priority": 500000,
+        "webhookUsed": true,
+        "webhookForSlotFilling": false,
+        "fallbackIntent": false,
+        "events": [
+          {
+            "name": "actions_intent_CANCEL"
+          }
+        ]
+      }
     },
     {
       "name": "StopIntent",
@@ -396,7 +474,20 @@
         "goodbye",
         "bye",
         "bye bye"
-      ]
+      ],
+      "dialogflow": {
+        "auto": false,
+        "contexts": [],
+        "priority": 500000,
+        "webhookUsed": true,
+        "webhookForSlotFilling": false,
+        "fallbackIntent": false,
+        "events": [
+          {
+            "name": "actions_intent_CANCEL"
+          }
+        ]
+      }
     }
   ],
   "inputTypes": []
