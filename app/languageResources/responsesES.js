@@ -18,9 +18,15 @@ module.exports = {
       },
 
       Enjoy: 'Okey. <prosody rate="x-slow" pitch="x-low" volume="x-loud"> <amazon:effect name="whispered"> Que lo disfrutes </amazon:effect> </prosody>',
+      EnjoyGoogle: 'Okey. <prosody rate="x-slow" pitch="low" volume="x-loud"> Que lo disfrutes </prosody>',
 
       MediaTitle: 'Música Aterradora de Muñeca',
       MediaSubtitle: 'Por Derek & Brandon Fiechter',
+
+      SuggestionChips: [
+        'si',
+        'no',
+      ],
 
       Help: {
         ask: 'Puedo reproducir una excelente pieza musical para que te puedas relajar, o, ' +

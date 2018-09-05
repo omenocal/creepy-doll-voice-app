@@ -18,9 +18,15 @@ module.exports = {
       },
 
       Enjoy: 'Ok. <prosody rate="x-slow" pitch="x-low" volume="x-loud"> <amazon:effect name="whispered"> Enjoy </amazon:effect> </prosody>',
+      EnjoyGoogle: 'Ok. <prosody rate="x-slow" pitch="low" volume="x-loud"> Enjoy </prosody>',
 
       MediaTitle: 'Creepy Doll Melody',
       MediaSubtitle: 'By Derek & Brandon Fiechter',
+
+      SuggestionChips: [
+        'yes',
+        'no',
+      ],
 
       Help: {
         ask: 'I can play an excellent piece of music so that ' +

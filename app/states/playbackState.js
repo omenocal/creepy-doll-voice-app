@@ -56,7 +56,8 @@ const handler = {
     if (previousSpeechOutput) {
       speechBuilder = speechBuilder.addText(previousSpeechOutput);
     } else {
-      speechBuilder = speechBuilder.addText(this.t('Enjoy'));
+      const enjoyLabel = this.isAlexaSkill() ? 'Enjoy' : 'EnjoyGoogle';
+      speechBuilder = speechBuilder.addText(this.t(enjoyLabel));
     }
 
     speechBuilder = speechBuilder.addBreak('0.5s');
@@ -64,7 +65,7 @@ const handler = {
     const title = this.t('MediaTitle');
     const subtitle = this.t('MediaSubtitle');
 
-    if (this.hasScreenInterface()) {
+    if (this.hasScreenInterface() && this.isAlexaSkill()) {
       this.alexaSkill().showVideo(videoUrl, title, subtitle, speechBuilder.build());
       return;
     }
@@ -77,14 +78,27 @@ const handler = {
     await helper.saveUser.call(this);
     helper.endSession.call(this);
 
-    this.alexaSkill().audioPlayer()
-      .setOffsetInMilliseconds(user.offsetInMilliseconds)
-      .setTitle(title)
-      .setSubtitle(subtitle)
-      .addArtwork(artworkUrl)
-      .addBackgroundImage(backgroundUrl)
-      .play(audioUrl, 'token')
-      .tell(speechBuilder.build());
+    if (this.isGoogleAction()) {
+      this.googleAction().audioPlayer()
+        .play(audioUrl, title, {
+          description: subtitle,
+          icon: {
+            url: artworkUrl,
+            alt: title,
+          },
+        });
+
+      this.tell(speechBuilder.build());
+    } else {
+      this.alexaSkill().audioPlayer()
+        .setOffsetInMilliseconds(user.offsetInMilliseconds)
+        .setTitle(title)
+        .setSubtitle(subtitle)
+        .addArtwork(artworkUrl)
+        .addBackgroundImage(backgroundUrl)
+        .play(audioUrl, 'token')
+        .tell(speechBuilder.build());
+    }
   },
 };
 

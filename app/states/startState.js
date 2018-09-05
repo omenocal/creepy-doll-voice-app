@@ -25,6 +25,7 @@ const handler = {
     user.offsetInMilliseconds = 0;
     user.state = states.PLAY;
 
+    const url = `${config.s3.url}/background.jpg`;
     const bodyTemplate = this.alexaSkill().templateBuilder('BodyTemplate1');
     bodyTemplate
       .setToken('token')
@@ -32,10 +33,17 @@ const handler = {
       .setTitle(this.t('MediaTitle'))
       .setBackgroundImage({
         description: this.t('MediaTitle'),
-        url: `${config.s3.url}/background.jpg`,
+        url,
       });
 
-    this.alexaSkill().showDisplayTemplate(bodyTemplate);
+    if (this.isGoogleAction()) {
+      this
+        .googleAction()
+        .showImageCard(this.t('MediaTitle'), this.t('MediaSubtitle'), url)
+        .showSuggestionChips(this.t('SuggestionChips'));
+    } else {
+      this.alexaSkill().showDisplayTemplate(bodyTemplate);
+    }
 
     this
       .followUpState(states.PLAY)
