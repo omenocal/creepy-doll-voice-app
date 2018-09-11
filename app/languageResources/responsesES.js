@@ -17,6 +17,11 @@ module.exports = {
         continue: 'Lo que me pides no está disponible por el momento. Continuemos',
       },
 
+      Loop: {
+        on: 'Loop está habilitado. Continuemos.',
+        off: 'Loop está deshabilitado. Continuemos.',
+      },
+
       Enjoy: 'Okey. <prosody rate="x-slow" pitch="x-low" volume="x-loud"> <amazon:effect name="whispered"> Que lo disfrutes </amazon:effect> </prosody>',
       EnjoyGoogle: 'Okey. <prosody rate="x-slow" pitch="low" volume="x-loud"> Que lo disfrutes </prosody>',
 

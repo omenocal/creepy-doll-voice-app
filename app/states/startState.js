@@ -69,7 +69,7 @@ const handler = {
       .ask(this.getSessionAttribute('speechOutput'), this.getSessionAttribute('repromptSpeech'));
   },
   async StopIntent() {
-    const user = await helper.getUser.call(this);
+    const user = await helper.getUser.call(this) || this.getSessionAttribute('user');
     const offset = this.alexaSkill().audioPlayer().getOffsetInMilliseconds();
 
     user.offsetInMilliseconds = offset;

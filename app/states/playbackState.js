@@ -9,12 +9,12 @@ const backgroundUrl = `${config.s3.url}/background.jpg`;
 const videoUrl = `${config.s3.url}/video.mp4`;
 
 const handler = {
-  notSupported() {
+  async notSupported() {
     helper.registerGoogleAnalytics.call(this).event('Main flow', this.getIntentName());
 
-    const user = this.getSessionAttribute('user');
+    const offset = this.alexaSkill().audioPlayer().getOffsetInMilliseconds();
 
-    if (user.offsetInMilliseconds === 0) {
+    if (offset === 0) {
       this
         .setSessionAttribute('speechOutput', this.t('NotSupported.ask'))
         .setSessionAttribute('repromptSpeech', this.t('NotSupported.reprompt'))
@@ -24,33 +24,33 @@ const handler = {
 
     this.toIntent('playRequest', this.t('NotSupported.continue'));
   },
-  repeat() {
+  async repeat() {
     helper.registerGoogleAnalytics.call(this).event('Main flow', this.getIntentName());
 
-    const user = this.getSessionAttribute('user');
+    const offset = this.alexaSkill().audioPlayer().getOffsetInMilliseconds();
 
-    if (user.offsetInMilliseconds === 0) {
+    if (offset === 0) {
       this.ask(this.getSessionAttribute('speechOutput'), this.getSessionAttribute('repromptSpeech'));
       return;
     }
 
-    this.toIntent('playRequest');
+    this.toIntent('playRequest', null, true);
   },
   loopOn() {
     helper.registerGoogleAnalytics.call(this).event('Main flow', this.getIntentName());
 
     this
-      .setSessionAttribute('user.loop', true)
+      .setSessionAttribute('loop', true)
       .toIntent('playRequest', this.t('Loop.on'));
   },
   loopOff() {
     helper.registerGoogleAnalytics.call(this).event('Main flow', this.getIntentName());
 
     this
-      .setSessionAttribute('user.loop', false)
+      .setSessionAttribute('loop', false)
       .toIntent('playRequest', this.t('Loop.off'));
   },
-  async playRequest(previousSpeechOutput) {
+  async playRequest(previousSpeechOutput, shouldResetMilliseconds) {
     let speechBuilder = this.speechBuilder();
 
     if (previousSpeechOutput) {
@@ -59,8 +59,6 @@ const handler = {
       const enjoyLabel = this.isAlexaSkill() ? 'Enjoy' : 'EnjoyGoogle';
       speechBuilder = speechBuilder.addText(this.t(enjoyLabel));
     }
-
-    speechBuilder = speechBuilder.addBreak('0.5s');
 
     const title = this.t('MediaTitle');
     const subtitle = this.t('MediaSubtitle');
@@ -71,8 +69,15 @@ const handler = {
     }
 
     let user = this.getSessionAttribute('user');
+    console.log('user', user);
     user = user || await helper.getUser.call(this);
-    user.offsetInMilliseconds = user.offsetInMilliseconds || 0;
+    user.loop = this.getSessionAttribute('loop') || user.loop;
+
+    if (shouldResetMilliseconds) {
+      user.offsetInMilliseconds = 0;
+    } else {
+      user.offsetInMilliseconds = this.alexaSkill().audioPlayer().getOffsetInMilliseconds();
+    }
 
     this.setSessionAttribute('user', user);
     await helper.saveUser.call(this);
