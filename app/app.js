@@ -29,6 +29,9 @@ const jovoConfig = {
       DashbotAlexa: {
         key: config.dashbot.alexa,
       },
+      DashbotGoogleAction: {
+        key: config.dashbot.google,
+      },
     },
   },
   // db: config.db,

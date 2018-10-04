@@ -2,7 +2,8 @@
   "alexaSkillId": "",
   "googleActionId": "",
   "dashbot" : {
-    "alexa" : "api_key"
+    "alexa" : "api_key",
+    "google" : "api_key"
   },
   "googleAnalytics" : {
     "trackingCode" : "api_key"
