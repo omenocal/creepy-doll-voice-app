@@ -12,7 +12,11 @@ const handler = {
   async notSupported() {
     helper.registerGoogleAnalytics.call(this).event('Main flow', this.getIntentName());
 
-    const offset = this.alexaSkill().audioPlayer().getOffsetInMilliseconds();
+    let offset = 0;
+
+    if (this.isAlexaSkill()) {
+      offset = this.alexaSkill().audioPlayer().getOffsetInMilliseconds();
+    }
 
     if (offset === 0) {
       this
@@ -27,7 +31,11 @@ const handler = {
   async repeat() {
     helper.registerGoogleAnalytics.call(this).event('Main flow', this.getIntentName());
 
-    const offset = this.alexaSkill().audioPlayer().getOffsetInMilliseconds();
+    let offset = 0;
+
+    if (this.isAlexaSkill()) {
+      offset = this.alexaSkill().audioPlayer().getOffsetInMilliseconds();
+    }
 
     if (offset === 0) {
       this.ask(this.getSessionAttribute('speechOutput'), this.getSessionAttribute('repromptSpeech'));
@@ -75,7 +83,7 @@ const handler = {
 
     if (shouldResetMilliseconds) {
       user.offsetInMilliseconds = 0;
-    } else {
+    } else if (this.isAlexaSkill()) {
       user.offsetInMilliseconds = this.alexaSkill().audioPlayer().getOffsetInMilliseconds();
     }
 

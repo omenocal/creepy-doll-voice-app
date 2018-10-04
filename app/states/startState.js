@@ -70,7 +70,11 @@ const handler = {
   },
   async StopIntent() {
     const user = await helper.getUser.call(this) || this.getSessionAttribute('user');
-    const offset = this.alexaSkill().audioPlayer().getOffsetInMilliseconds();
+    let offset = 0;
+
+    if (this.isAlexaSkill()) {
+      offset = this.alexaSkill().audioPlayer().getOffsetInMilliseconds();
+    }
 
     user.offsetInMilliseconds = offset;
 
