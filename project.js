@@ -6,53 +6,52 @@ module.exports = {
       name: 'alexa',
       lang: {
         en: ['en-US', 'en-CA', 'en-GB', 'en-IN', 'en-AU'],
-        es: ['en-ES', 'en-MX']
+        es: ['es-ES', 'es-MX', 'es-US'],
       },
     },
   },
-  "endpoint": "https://webhook.jovo.cloud/f56c569e-aca3-4dba-bf15-cb1330d80061",
   googleAction: {
     nlu: {
       name: 'dialogflow',
     },
-    "dialogflow": {
-      "keyFile": "key-file.json",
-      "agent": {
-        "language": "en",
-        "disableInteractionLogs": false,
-        "disableStackdriverLogs": true,
-        "googleAssistant": {
-          "googleAssistantCompatible": true,
-          "welcomeIntentSignInRequired": false,
-          "startIntents": [],
-          "systemIntents": [],
-          "endIntentIds": [],
-          "oAuthLinking": {
-            "required": false,
-            "grantType": "AUTH_CODE_GRANT"
+    dialogflow: {
+      keyFile: 'key-file.json',
+      agent: {
+        language: 'en',
+        disableInteractionLogs: false,
+        disableStackdriverLogs: true,
+        googleAssistant: {
+          googleAssistantCompatible: true,
+          welcomeIntentSignInRequired: false,
+          startIntents: [],
+          systemIntents: [],
+          endIntentIds: [],
+          oAuthLinking: {
+            required: false,
+            grantType: 'AUTH_CODE_GRANT',
           },
-          "voiceType": "FEMALE_1",
-          "capabilities": [],
-          "protocolVersion": "V2",
-          "autoPreviewEnabled": false,
-          "isDeviceAgent": false
+          voiceType: 'FEMALE_1',
+          capabilities: [],
+          protocolVersion: 'V2',
+          autoPreviewEnabled: false,
+          isDeviceAgent: false,
         },
-        "defaultTimezone": "America/Chicago",
-        "isPrivate": true,
-        "supportedLanguages": [
-          "es"
+        defaultTimezone: 'America/Chicago',
+        isPrivate: true,
+        supportedLanguages: [
+          'es',
         ],
-        "onePlatformApiVersion": "v2",
-        "analyzeQueryTextSentiment": false,
-        "enabledKnowledgeBaseNames": [],
-        "knowledgeServiceConfidenceAdjustment": -0.4,
-        "webhook": {
-          "available": true,
-          "useForDomains": false,
-          "cloudFunctionsEnabled": false,
-          "cloudFunctionsInitialized": false
-        }
-      }
+        onePlatformApiVersion: 'v2',
+        analyzeQueryTextSentiment: false,
+        enabledKnowledgeBaseNames: [],
+        knowledgeServiceConfidenceAdjustment: -0.4,
+        webhook: {
+          available: true,
+          useForDomains: false,
+          cloudFunctionsEnabled: false,
+          cloudFunctionsInitialized: false,
+        },
+      },
     },
   },
 };

@@ -1,9 +1,44 @@
 {
   "manifest": {
+    "apis": {
+      "custom": {
+        "endpoint": {
+          "uri": "arn:aws:lambda:us-east-1:496454139797:function:creepy-doll-voice-app",
+          "sslCertificateType": "Trusted"
+        },
+        "interfaces": [
+          {
+            "type": "AUDIO_PLAYER"
+          },
+          {
+            "type": "RENDER_TEMPLATE",
+            "minimumTemplateVersion": "1.0"
+          },
+          {
+            "type": "VIDEO_APP"
+          },
+          {
+            "type": "CAN_FULFILL_INTENT_REQUEST"
+          }
+        ]
+      }
+    },
+    "manifestVersion": "1.0",
+    "privacyAndCompliance": {
+      "allowsPurchases": false,
+      "usesPersonalInfo": false,
+      "isChildDirected": false,
+      "isExportCompliant": true,
+      "containsAds": false
+    },
     "publishingInformation": {
       "locales": {
         "en-US": {
+          "name": "Creepy Doll Music & Background",
+          "smallIconUri": "https://s3.amazonaws.com/CAPS-SSE/echo_developer/f783/247aff78c7324410a328e8c12abe13df/APP_ICON?versionId=F6lrs_REhvU7tu7cpMLRyakrEfqtpZrm&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Date=20190907T233114Z&X-Amz-SignedHeaders=host&X-Amz-Expires=86400&X-Amz-Credential=AKIAJFEYRBGIHK2BBYKA%2F20190907%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Signature=b699411de7d7486c0b34db13db2663c3dd152cfc99ce5db211cddc4bccb0c9f1",
+          "largeIconUri": "https://s3.amazonaws.com/CAPS-SSE/echo_developer/1cef/a05e7944e4084a618c55dfbd7e65ddbf/APP_ICON_LARGE?versionId=KGFACftXBi0HK9Xb0kxzq5CHFIGpZMvT&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Date=20190907T233114Z&X-Amz-SignedHeaders=host&X-Amz-Expires=86400&X-Amz-Credential=AKIAJFEYRBGIHK2BBYKA%2F20190907%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Signature=23c19bc241270c43377ac643692c04710059a26438f07616819adddfad778fdf",
           "summary": "Listen to creepy and cool music inspired in Creepy Dolls.",
+          "description": "Do you think Alexa enjoys creepy music? Well, yes she does. Specially music inspired in creepy dolls. You can ask her to play creepy and horror melodies, and she will find the best creepy melodies to play for an hour. If you have a screen device like Echo Show and Echo Spot you can see creepy doll images throughout all the time the melody lasts.\n\nYou can say things like:\n\nAlexa, start creepy doll.\nAlexa, ask creepy doll for a creepy background.\nAlexa, tell creepy doll to frighten me.\n\nIMPORTANT: due to the video duration (1 hour), Echo Show and Echo Spot devices last some seconds to load the video. If it's the first time you open the skill you'll experience a 5-7 seconds delay. Next times, it lasts 3-4 seconds to load, depending on your internet connection.\n\nCredits to the video and music goes to Derek & Brandon Fiechter. Visit their YouToube Channel for more excellent content: https://www.youtube.com/watch?v=9SlEXqWtDVk.\n\nIf you have any questions or suggestions for more skills, just leave an email at octaviomenocal92@gmail.com.\n\nThanks and enjoy!",
           "examplePhrases": [
             "Alexa, open creepy doll.",
             "Alexa, ask creepy doll to scare me.",
@@ -40,14 +75,14 @@
             "ever",
             "extraordinary",
             "different"
-          ],
-          "name": "Creepy Doll Music & Background",
-          "smallIconUri": "https://s3.amazonaws.com/CAPS-SSE/echo_developer/f783/247aff78c7324410a328e8c12abe13df/APP_ICON?versionId=F6lrs_REhvU7tu7cpMLRyakrEfqtpZrm&AWSAccessKeyId=AKIAIEYXX6DHY7O4XWMA&Expires=1536714786&Signature=ADW2VEsWHYfH3eJo0YHCgZGhT2k%3D",
-          "description": "Do you think Alexa enjoys creepy music? Well, yes she does. Specially music inspired in creepy dolls. You can ask her to play creepy and horror melodies, and she will find the best creepy melodies to play for an hour. If you have a screen device like Echo Show and Echo Spot you can see creepy doll images throughout all the time the melody lasts.\n\nYou can say things like:\n\nAlexa, start creepy doll.\nAlexa, ask creepy doll for a creepy background.\nAlexa, tell creepy doll to frighten me.\n\nIMPORTANT: due to the video duration (1 hour), Echo Show and Echo Spot devices last some seconds to load the video. If it's the first time you open the skill you'll experience a 5-7 seconds delay. Next times, it lasts 3-4 seconds to load, depending on your internet connection.\n\nCredits to the video and music goes to Derek & Brandon Fiechter. Visit their YouToube Channel for more excellent content: https://www.youtube.com/channel/UCjMZjGhrFq_4llVS_x2XJ_w.\n\nIf you have any questions or suggestions for more skills, just leave an email at octaviomenocal92@gmail.com.\n\nThanks and enjoy!",
-          "largeIconUri": "https://s3.amazonaws.com/CAPS-SSE/echo_developer/1cef/a05e7944e4084a618c55dfbd7e65ddbf/APP_ICON_LARGE?versionId=KGFACftXBi0HK9Xb0kxzq5CHFIGpZMvT&AWSAccessKeyId=AKIAIEYXX6DHY7O4XWMA&Expires=1536714786&Signature=HWpcR7dk934EdzH5RricoBytVH8%3D"
+          ]
         },
         "en-CA": {
+          "name": "Creepy Doll Music & Background",
+          "smallIconUri": "https://s3.amazonaws.com/CAPS-SSE/echo_developer/f783/247aff78c7324410a328e8c12abe13df/APP_ICON?versionId=F6lrs_REhvU7tu7cpMLRyakrEfqtpZrm&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Date=20190907T233114Z&X-Amz-SignedHeaders=host&X-Amz-Expires=86400&X-Amz-Credential=AKIAJFEYRBGIHK2BBYKA%2F20190907%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Signature=b699411de7d7486c0b34db13db2663c3dd152cfc99ce5db211cddc4bccb0c9f1",
+          "largeIconUri": "https://s3.amazonaws.com/CAPS-SSE/echo_developer/1cef/a05e7944e4084a618c55dfbd7e65ddbf/APP_ICON_LARGE?versionId=KGFACftXBi0HK9Xb0kxzq5CHFIGpZMvT&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Date=20190907T233114Z&X-Amz-SignedHeaders=host&X-Amz-Expires=86400&X-Amz-Credential=AKIAJFEYRBGIHK2BBYKA%2F20190907%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Signature=23c19bc241270c43377ac643692c04710059a26438f07616819adddfad778fdf",
           "summary": "Listen to creepy and cool music inspired in Creepy Dolls.",
+          "description": "Do you think Alexa enjoys creepy music? Well, yes she does. Specially music inspired in creepy dolls. You can ask her to play creepy and horror melodies, and she will find the best creepy melodies to play for an hour. If you have a screen device like Echo Show and Echo Spot you can see creepy doll images throughout all the time the melody lasts.\n\nYou can say things like:\n\nAlexa, start creepy doll.\nAlexa, ask creepy doll for a creepy background.\nAlexa, tell creepy doll to frighten me.\n\nIMPORTANT: due to the video duration (1 hour), Echo Show and Echo Spot devices last some seconds to load the video. If it's the first time you open the skill you'll experience a 5-7 seconds delay. Next times, it lasts 3-4 seconds to load, depending on your internet connection.\n\nCredits to the video and music goes to Derek & Brandon Fiechter. Visit their YouToube Channel for more excellent content: https://www.youtube.com/watch?v=9SlEXqWtDVk.\n\nIf you have any questions or suggestions for more skills, just leave an email at octaviomenocal92@gmail.com.\n\nThanks and enjoy!",
           "examplePhrases": [
             "Alexa, open creepy doll.",
             "Alexa, ask creepy doll to scare me.",
@@ -84,14 +119,14 @@
             "ever",
             "extraordinary",
             "different"
-          ],
-          "name": "Creepy Doll Music & Background",
-          "smallIconUri": "https://s3.amazonaws.com/CAPS-SSE/echo_developer/f783/247aff78c7324410a328e8c12abe13df/APP_ICON?versionId=F6lrs_REhvU7tu7cpMLRyakrEfqtpZrm&AWSAccessKeyId=AKIAIEYXX6DHY7O4XWMA&Expires=1536714786&Signature=ADW2VEsWHYfH3eJo0YHCgZGhT2k%3D",
-          "description": "Do you think Alexa enjoys creepy music? Well, yes she does. Specially music inspired in creepy dolls. You can ask her to play creepy and horror melodies, and she will find the best creepy melodies to play for an hour. If you have a screen device like Echo Show and Echo Spot you can see creepy doll images throughout all the time the melody lasts.\n\nYou can say things like:\n\nAlexa, start creepy doll.\nAlexa, ask creepy doll for a creepy background.\nAlexa, tell creepy doll to frighten me.\n\nIMPORTANT: due to the video duration (1 hour), Echo Show and Echo Spot devices last some seconds to load the video. If it's the first time you open the skill you'll experience a 5-7 seconds delay. Next times, it lasts 3-4 seconds to load, depending on your internet connection.\n\nCredits to the video and music goes to Derek & Brandon Fiechter. Visit their YouToube Channel for more excellent content: https://www.youtube.com/channel/UCjMZjGhrFq_4llVS_x2XJ_w.\n\nIf you have any questions or suggestions for more skills, just leave an email at octaviomenocal92@gmail.com.\n\nThanks and enjoy!",
-          "largeIconUri": "https://s3.amazonaws.com/CAPS-SSE/echo_developer/1cef/a05e7944e4084a618c55dfbd7e65ddbf/APP_ICON_LARGE?versionId=KGFACftXBi0HK9Xb0kxzq5CHFIGpZMvT&AWSAccessKeyId=AKIAIEYXX6DHY7O4XWMA&Expires=1536714786&Signature=HWpcR7dk934EdzH5RricoBytVH8%3D"
+          ]
         },
         "en-IN": {
+          "name": "Creepy Doll Music & Background",
+          "smallIconUri": "https://s3.amazonaws.com/CAPS-SSE/echo_developer/f783/247aff78c7324410a328e8c12abe13df/APP_ICON?versionId=F6lrs_REhvU7tu7cpMLRyakrEfqtpZrm&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Date=20190907T233114Z&X-Amz-SignedHeaders=host&X-Amz-Expires=86400&X-Amz-Credential=AKIAJFEYRBGIHK2BBYKA%2F20190907%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Signature=b699411de7d7486c0b34db13db2663c3dd152cfc99ce5db211cddc4bccb0c9f1",
+          "largeIconUri": "https://s3.amazonaws.com/CAPS-SSE/echo_developer/1cef/a05e7944e4084a618c55dfbd7e65ddbf/APP_ICON_LARGE?versionId=KGFACftXBi0HK9Xb0kxzq5CHFIGpZMvT&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Date=20190907T233114Z&X-Amz-SignedHeaders=host&X-Amz-Expires=86400&X-Amz-Credential=AKIAJFEYRBGIHK2BBYKA%2F20190907%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Signature=23c19bc241270c43377ac643692c04710059a26438f07616819adddfad778fdf",
           "summary": "Listen to creepy and cool music inspired in Creepy Dolls.",
+          "description": "Do you think Alexa enjoys creepy music? Well, yes she does. Specially music inspired in creepy dolls. You can ask her to play creepy and horror melodies, and she will find the best creepy melodies to play for an hour. If you have a screen device like Echo Show and Echo Spot you can see creepy doll images throughout all the time the melody lasts.\n\nYou can say things like:\n\nAlexa, start creepy doll.\nAlexa, ask creepy doll for a creepy background.\nAlexa, tell creepy doll to frighten me.\n\nIMPORTANT: due to the video duration (1 hour), Echo Show and Echo Spot devices last some seconds to load the video. If it's the first time you open the skill you'll experience a 5-7 seconds delay. Next times, it lasts 3-4 seconds to load, depending on your internet connection.\n\nCredits to the video and music goes to Derek & Brandon Fiechter. Visit their YouToube Channel for more excellent content: https://www.youtube.com/watch?v=9SlEXqWtDVk.\n\nIf you have any questions or suggestions for more skills, just leave an email at octaviomenocal92@gmail.com.\n\nThanks and enjoy!",
           "examplePhrases": [
             "Alexa, open creepy doll.",
             "Alexa, ask creepy doll to scare me.",
@@ -128,14 +163,14 @@
             "ever",
             "extraordinary",
             "different"
-          ],
-          "name": "Creepy Doll Music & Background",
-          "smallIconUri": "https://s3.amazonaws.com/CAPS-SSE/echo_developer/f783/247aff78c7324410a328e8c12abe13df/APP_ICON?versionId=F6lrs_REhvU7tu7cpMLRyakrEfqtpZrm&AWSAccessKeyId=AKIAIEYXX6DHY7O4XWMA&Expires=1536714786&Signature=ADW2VEsWHYfH3eJo0YHCgZGhT2k%3D",
-          "description": "Do you think Alexa enjoys creepy music? Well, yes she does. Specially music inspired in creepy dolls. You can ask her to play creepy and horror melodies, and she will find the best creepy melodies to play for an hour. If you have a screen device like Echo Show and Echo Spot you can see creepy doll images throughout all the time the melody lasts.\n\nYou can say things like:\n\nAlexa, start creepy doll.\nAlexa, ask creepy doll for a creepy background.\nAlexa, tell creepy doll to frighten me.\n\nIMPORTANT: due to the video duration (1 hour), Echo Show and Echo Spot devices last some seconds to load the video. If it's the first time you open the skill you'll experience a 5-7 seconds delay. Next times, it lasts 3-4 seconds to load, depending on your internet connection.\n\nCredits to the video and music goes to Derek & Brandon Fiechter. Visit their YouToube Channel for more excellent content: https://www.youtube.com/channel/UCjMZjGhrFq_4llVS_x2XJ_w.\n\nIf you have any questions or suggestions for more skills, just leave an email at octaviomenocal92@gmail.com.\n\nThanks and enjoy!",
-          "largeIconUri": "https://s3.amazonaws.com/CAPS-SSE/echo_developer/1cef/a05e7944e4084a618c55dfbd7e65ddbf/APP_ICON_LARGE?versionId=KGFACftXBi0HK9Xb0kxzq5CHFIGpZMvT&AWSAccessKeyId=AKIAIEYXX6DHY7O4XWMA&Expires=1536714786&Signature=HWpcR7dk934EdzH5RricoBytVH8%3D"
+          ]
         },
         "en-AU": {
+          "name": "Creepy Doll Music & Background",
+          "smallIconUri": "https://s3.amazonaws.com/CAPS-SSE/echo_developer/f783/247aff78c7324410a328e8c12abe13df/APP_ICON?versionId=F6lrs_REhvU7tu7cpMLRyakrEfqtpZrm&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Date=20190907T233114Z&X-Amz-SignedHeaders=host&X-Amz-Expires=86400&X-Amz-Credential=AKIAJFEYRBGIHK2BBYKA%2F20190907%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Signature=b699411de7d7486c0b34db13db2663c3dd152cfc99ce5db211cddc4bccb0c9f1",
+          "largeIconUri": "https://s3.amazonaws.com/CAPS-SSE/echo_developer/1cef/a05e7944e4084a618c55dfbd7e65ddbf/APP_ICON_LARGE?versionId=KGFACftXBi0HK9Xb0kxzq5CHFIGpZMvT&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Date=20190907T233114Z&X-Amz-SignedHeaders=host&X-Amz-Expires=86400&X-Amz-Credential=AKIAJFEYRBGIHK2BBYKA%2F20190907%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Signature=23c19bc241270c43377ac643692c04710059a26438f07616819adddfad778fdf",
           "summary": "Listen to creepy and cool music inspired in Creepy Dolls.",
+          "description": "Do you think Alexa enjoys creepy music? Well, yes she does. Specially music inspired in creepy dolls. You can ask her to play creepy and horror melodies, and she will find the best creepy melodies to play for an hour. If you have a screen device like Echo Show and Echo Spot you can see creepy doll images throughout all the time the melody lasts.\n\nYou can say things like:\n\nAlexa, start creepy doll.\nAlexa, ask creepy doll for a creepy background.\nAlexa, tell creepy doll to frighten me.\n\nIMPORTANT: due to the video duration (1 hour), Echo Show and Echo Spot devices last some seconds to load the video. If it's the first time you open the skill you'll experience a 5-7 seconds delay. Next times, it lasts 3-4 seconds to load, depending on your internet connection.\n\nCredits to the video and music goes to Derek & Brandon Fiechter. Visit their YouToube Channel for more excellent content: https://www.youtube.com/watch?v=9SlEXqWtDVk.\n\nIf you have any questions or suggestions for more skills, just leave an email at octaviomenocal92@gmail.com.\n\nThanks and enjoy!",
           "examplePhrases": [
             "Alexa, open creepy doll.",
             "Alexa, ask creepy doll to scare me.",
@@ -172,14 +207,14 @@
             "ever",
             "extraordinary",
             "different"
-          ],
-          "name": "Creepy Doll Music & Background",
-          "smallIconUri": "https://s3.amazonaws.com/CAPS-SSE/echo_developer/f783/247aff78c7324410a328e8c12abe13df/APP_ICON?versionId=F6lrs_REhvU7tu7cpMLRyakrEfqtpZrm&AWSAccessKeyId=AKIAIEYXX6DHY7O4XWMA&Expires=1536714786&Signature=ADW2VEsWHYfH3eJo0YHCgZGhT2k%3D",
-          "description": "Do you think Alexa enjoys creepy music? Well, yes she does. Specially music inspired in creepy dolls. You can ask her to play creepy and horror melodies, and she will find the best creepy melodies to play for an hour. If you have a screen device like Echo Show and Echo Spot you can see creepy doll images throughout all the time the melody lasts.\n\nYou can say things like:\n\nAlexa, start creepy doll.\nAlexa, ask creepy doll for a creepy background.\nAlexa, tell creepy doll to frighten me.\n\nIMPORTANT: due to the video duration (1 hour), Echo Show and Echo Spot devices last some seconds to load the video. If it's the first time you open the skill you'll experience a 5-7 seconds delay. Next times, it lasts 3-4 seconds to load, depending on your internet connection.\n\nCredits to the video and music goes to Derek & Brandon Fiechter. Visit their YouToube Channel for more excellent content: https://www.youtube.com/channel/UCjMZjGhrFq_4llVS_x2XJ_w.\n\nIf you have any questions or suggestions for more skills, just leave an email at octaviomenocal92@gmail.com.\n\nThanks and enjoy!",
-          "largeIconUri": "https://s3.amazonaws.com/CAPS-SSE/echo_developer/1cef/a05e7944e4084a618c55dfbd7e65ddbf/APP_ICON_LARGE?versionId=KGFACftXBi0HK9Xb0kxzq5CHFIGpZMvT&AWSAccessKeyId=AKIAIEYXX6DHY7O4XWMA&Expires=1536714786&Signature=HWpcR7dk934EdzH5RricoBytVH8%3D"
+          ]
         },
         "es-ES": {
+          "name": "Música Aterradora de Muñeca",
+          "smallIconUri": "https://s3.amazonaws.com/CAPS-SSE/echo_developer/f783/247aff78c7324410a328e8c12abe13df/APP_ICON?versionId=F6lrs_REhvU7tu7cpMLRyakrEfqtpZrm&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Date=20190907T233114Z&X-Amz-SignedHeaders=host&X-Amz-Expires=86400&X-Amz-Credential=AKIAJFEYRBGIHK2BBYKA%2F20190907%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Signature=b699411de7d7486c0b34db13db2663c3dd152cfc99ce5db211cddc4bccb0c9f1",
+          "largeIconUri": "https://s3.amazonaws.com/CAPS-SSE/echo_developer/1cef/a05e7944e4084a618c55dfbd7e65ddbf/APP_ICON_LARGE?versionId=KGFACftXBi0HK9Xb0kxzq5CHFIGpZMvT&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Date=20190907T233114Z&X-Amz-SignedHeaders=host&X-Amz-Expires=86400&X-Amz-Credential=AKIAJFEYRBGIHK2BBYKA%2F20190907%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Signature=23c19bc241270c43377ac643692c04710059a26438f07616819adddfad778fdf",
           "summary": "Disfruta de grandiosa y aterradora melodías inspiras en Muñecas Aterradoras.",
+          "description": "¿Crees que Alexa disfruta la música aterradora? Bueno, si lo hace. Especialmente música inspirada en Muñecas Aterradoras. Puedes pedirle que reproduzca melodías aterradoras, y ella encontrará las mejores melodías para tí que duran mas de una hora. Si tienes un dispositivo con pantalla como el Echo Spot, puedes ver imágenes de muñecas aterradoras mientras la melodía dure.\n\nPuedes decir cosas como:\n\nAlexa, abre muñeca aterradora.\nAlexa, pídele a muñeca aterradora un fondo aterrador.\nAlexa, dile a muñeca aterradora que me espante.\n\nCréditos del video y música van para Derek & Brandon Fiechter. Visita su canal de YouToube para más contenido de calidad: https://www.youtube.com/watch?v=9SlEXqWtDVk.\n\nIMPORTANTE: debido a la duración del video (1 hora), el Echo Spot dilata unos segundos en cargar el video. Si es la primera vez que abres la skill, experimentarás un retraso de 5 a 7 segundos antes que inicie. Las siguientes ocasiones, dilata entre 3 y 4 segundos en cargar, dependiendo de tu conexión a internet.\n\nSi tienes alguna pregunta o sugerencia para más skills, sólo envíame un correo a octaviomenocal92@gmail.com.\n\nGracias y disfruta!",
           "examplePhrases": [
             "Alexa, abre muñeca aterradora.",
             "Alexa, dile a muñeca aterradora que me espante.",
@@ -215,14 +250,14 @@
             "nunca",
             "extraordinario",
             "diferente"
-          ],
-          "name": "Música Aterradora de Muñeca",
-          "smallIconUri": "https://s3.amazonaws.com/CAPS-SSE/echo_developer/f783/247aff78c7324410a328e8c12abe13df/APP_ICON?versionId=F6lrs_REhvU7tu7cpMLRyakrEfqtpZrm&AWSAccessKeyId=AKIAIEYXX6DHY7O4XWMA&Expires=1536714786&Signature=ADW2VEsWHYfH3eJo0YHCgZGhT2k%3D",
-          "description": "¿Crees que Alexa disfruta la música aterradora? Bueno, si lo hace. Espcialmente música inspirada en Muñecas Aterradoras. Puedes pedirle que reproduzca melodías aterradoras, y ella encontrará las mejores melodías para tí que duran mas de una hora. Si tienes un dispositivo con pantalla como el Echo Spot, puedes ver imágenes de muñecas aterradoras mientras la melodía dure.\n\nPuedes decir cosas como:\n\nAlexa, abre muñeca aterradora.\nAlexa, pídele a muñeca aterradora un fondo aterrador.\nAlexa, dile a muñeca aterradora que me espante.\n\nCréditos del video y música van para Derek & Brandon Fiechter. Visita su canal de YouToube para más contenido de calidad: https://www.youtube.com/channel/UCjMZjGhrFq_4llVS_x2XJ_w.\n\nIMPORTANTE: debido a la duración del video (1 hora), el Echo Spot dilata unos segundos en cargar el video. Si es la primera vez que abres la habilidad, experimentarás un retraso de 5 a 7 segundos antes que inicie. Las siguientes ocasiones, dilata entre 3 y 4 segundos en cargar, dependiendo de tu conexión a internet.\n\nSi tienes alguna pregunta o sugerencia para más habilidades, sólo envíame un correo a octaviomenocal92@gmail.com.\n\nGracias y disfruta!",
-          "largeIconUri": "https://s3.amazonaws.com/CAPS-SSE/echo_developer/1cef/a05e7944e4084a618c55dfbd7e65ddbf/APP_ICON_LARGE?versionId=KGFACftXBi0HK9Xb0kxzq5CHFIGpZMvT&AWSAccessKeyId=AKIAIEYXX6DHY7O4XWMA&Expires=1536714786&Signature=HWpcR7dk934EdzH5RricoBytVH8%3D"
+          ]
         },
         "en-GB": {
+          "name": "Creepy Doll Music & Background",
+          "smallIconUri": "https://s3.amazonaws.com/CAPS-SSE/echo_developer/f783/247aff78c7324410a328e8c12abe13df/APP_ICON?versionId=F6lrs_REhvU7tu7cpMLRyakrEfqtpZrm&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Date=20190907T233114Z&X-Amz-SignedHeaders=host&X-Amz-Expires=86400&X-Amz-Credential=AKIAJFEYRBGIHK2BBYKA%2F20190907%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Signature=b699411de7d7486c0b34db13db2663c3dd152cfc99ce5db211cddc4bccb0c9f1",
+          "largeIconUri": "https://s3.amazonaws.com/CAPS-SSE/echo_developer/1cef/a05e7944e4084a618c55dfbd7e65ddbf/APP_ICON_LARGE?versionId=KGFACftXBi0HK9Xb0kxzq5CHFIGpZMvT&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Date=20190907T233114Z&X-Amz-SignedHeaders=host&X-Amz-Expires=86400&X-Amz-Credential=AKIAJFEYRBGIHK2BBYKA%2F20190907%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Signature=23c19bc241270c43377ac643692c04710059a26438f07616819adddfad778fdf",
           "summary": "Listen to creepy and cool music inspired in Creepy Dolls.",
+          "description": "Do you think Alexa enjoys creepy music? Well, yes she does. Specially music inspired in creepy dolls. You can ask her to play creepy and horror melodies, and she will find the best creepy melodies to play for an hour. If you have a screen device like Echo Show and Echo Spot you can see creepy doll images throughout all the time the melody lasts.\n\nYou can say things like:\n\nAlexa, start creepy doll.\nAlexa, ask creepy doll for a creepy background.\nAlexa, tell creepy doll to frighten me.\n\nIMPORTANT: due to the video duration (1 hour), Echo Show and Echo Spot devices last some seconds to load the video. If it's the first time you open the skill you'll experience a 5-7 seconds delay. Next times, it lasts 3-4 seconds to load, depending on your internet connection.\n\nCredits to the video and music goes to Derek & Brandon Fiechter. Visit their YouToube Channel for more excellent content: https://www.youtube.com/watch?v=9SlEXqWtDVk.\n\nIf you have any questions or suggestions for more skills, just leave an email at octaviomenocal92@gmail.com.\n\nThanks and enjoy!",
           "examplePhrases": [
             "Alexa, open creepy doll.",
             "Alexa, ask creepy doll to scare me."
@@ -258,14 +293,14 @@
             "ever",
             "extraordinary",
             "different"
-          ],
-          "name": "Creepy Doll Music & Background",
-          "smallIconUri": "https://s3.amazonaws.com/CAPS-SSE/echo_developer/f783/247aff78c7324410a328e8c12abe13df/APP_ICON?versionId=F6lrs_REhvU7tu7cpMLRyakrEfqtpZrm&AWSAccessKeyId=AKIAIEYXX6DHY7O4XWMA&Expires=1536714786&Signature=ADW2VEsWHYfH3eJo0YHCgZGhT2k%3D",
-          "description": "Do you think Alexa enjoys creepy music? Well, yes she does. Specially music inspired in creepy dolls. You can ask her to play creepy and horror melodies, and she will find the best creepy melodies to play for an hour. If you have a screen device like Echo Show and Echo Spot you can see creepy doll images throughout all the time the melody lasts.\n\nYou can say things like:\n\nAlexa, start creepy doll.\nAlexa, ask creepy doll for a creepy background.\nAlexa, tell creepy doll to frighten me.\n\nIMPORTANT: due to the video duration (1 hour), Echo Show and Echo Spot devices last some seconds to load the video. If it's the first time you open the skill you'll experience a 5-7 seconds delay. Next times, it lasts 3-4 seconds to load, depending on your internet connection.\n\nCredits to the video and music goes to Derek & Brandon Fiechter. Visit their YouToube Channel for more excellent content: https://www.youtube.com/channel/UCjMZjGhrFq_4llVS_x2XJ_w.\n\nIf you have any questions or suggestions for more skills, just leave an email at octaviomenocal92@gmail.com.\n\nThanks and enjoy!",
-          "largeIconUri": "https://s3.amazonaws.com/CAPS-SSE/echo_developer/1cef/a05e7944e4084a618c55dfbd7e65ddbf/APP_ICON_LARGE?versionId=KGFACftXBi0HK9Xb0kxzq5CHFIGpZMvT&AWSAccessKeyId=AKIAIEYXX6DHY7O4XWMA&Expires=1536714786&Signature=HWpcR7dk934EdzH5RricoBytVH8%3D"
+          ]
         },
         "es-MX": {
+          "name": "Música Aterradora de Muñeca",
+          "smallIconUri": "https://s3.amazonaws.com/CAPS-SSE/echo_developer/f783/247aff78c7324410a328e8c12abe13df/APP_ICON?versionId=F6lrs_REhvU7tu7cpMLRyakrEfqtpZrm&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Date=20190907T233114Z&X-Amz-SignedHeaders=host&X-Amz-Expires=86400&X-Amz-Credential=AKIAJFEYRBGIHK2BBYKA%2F20190907%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Signature=b699411de7d7486c0b34db13db2663c3dd152cfc99ce5db211cddc4bccb0c9f1",
+          "largeIconUri": "https://s3.amazonaws.com/CAPS-SSE/echo_developer/1cef/a05e7944e4084a618c55dfbd7e65ddbf/APP_ICON_LARGE?versionId=KGFACftXBi0HK9Xb0kxzq5CHFIGpZMvT&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Date=20190907T233114Z&X-Amz-SignedHeaders=host&X-Amz-Expires=86400&X-Amz-Credential=AKIAJFEYRBGIHK2BBYKA%2F20190907%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Signature=23c19bc241270c43377ac643692c04710059a26438f07616819adddfad778fdf",
           "summary": "Disfruta de grandiosa y aterradora melodías inspiras en Muñecas Aterradoras.",
+          "description": "¿Crees que Alexa disfruta la música aterradora? Bueno, si lo hace. Especialmente música inspirada en Muñecas Aterradoras. Puedes pedirle que reproduzca melodías aterradoras, y ella encontrará las mejores melodías para tí que duran mas de una hora. Si tienes un dispositivo con pantalla como el Echo Spot, puedes ver imágenes de muñecas aterradoras mientras la melodía dure.\n\nPuedes decir cosas como:\n\nAlexa, abre muñeca aterradora.\nAlexa, pídele a muñeca aterradora un fondo de terror.\nAlexa, dile a muñeca aterradora que me espante.\n\nCréditos del video y música van para Derek & Brandon Fiechter. Visita su canal de YouToube para más contenido de calidad: https://www.youtube.com/watch?v=9SlEXqWtDVk.\n\nIMPORTANTE: debido a la duración del video (1 hora), el Echo Spot dilata unos segundos en cargar el video. Si es la primera vez que abres la skill, experimentarás un retraso de 5 a 7 segundos antes que inicie. Las siguientes ocasiones, dilata entre 3 y 4 segundos en cargar, dependiendo de tu conexión a internet.\n\nSi tienes alguna pregunta o sugerencia para más skills, sólo envíame un correo a octaviomenocal92@gmail.com.\n\nGracias y disfruta!",
           "examplePhrases": [
             "Alexa, abre muñeca aterradora.",
             "Alexa, pide a muñeca aterradora que me espante.",
@@ -301,44 +336,56 @@
             "nunca",
             "extraordinario",
             "diferente"
-          ],
+          ]
+        },
+        "es-US": {
           "name": "Música Aterradora de Muñeca",
-          "smallIconUri": "https://s3.amazonaws.com/CAPS-SSE/echo_developer/f783/247aff78c7324410a328e8c12abe13df/APP_ICON?versionId=F6lrs_REhvU7tu7cpMLRyakrEfqtpZrm&AWSAccessKeyId=AKIAIEYXX6DHY7O4XWMA&Expires=1536714786&Signature=ADW2VEsWHYfH3eJo0YHCgZGhT2k%3D",
-          "description": "¿Crees que Alexa disfruta la música aterradora? Bueno, si lo hace. Espcialmente música inspirada en Muñecas Aterradoras. Puedes pedirle que reproduzca melodías aterradoras, y ella encontrará las mejores melodías para tí que duran mas de una hora. Si tienes un dispositivo con pantalla como el Echo Spot, puedes ver imágenes de muñecas aterradoras mientras la melodía dure.\n\nPuedes decir cosas como:\n\nAlexa, abre muñeca aterradora.\nAlexa, pídele a muñeca aterradora un fondo aterrador.\nAlexa, dile a muñeca aterradora que me espante.\n\nCréditos del video y música van para Derek & Brandon Fiechter. Visita su canal de YouToube para más contenido de calidad: https://www.youtube.com/channel/UCjMZjGhrFq_4llVS_x2XJ_w.\n\nIMPORTANTE: debido a la duración del video (1 hora), el Echo Spot dilata unos segundos en cargar el video. Si es la primera vez que abres la skill, experimentarás un retraso de 5 a 7 segundos antes que inicie. Las siguientes ocasiones, dilata entre 3 y 4 segundos en cargar, dependiendo de tu conexión a internet.\n\nSi tienes alguna pregunta o sugerencia para más skills, sólo envíame un correo a octaviomenocal92@gmail.com.\n\nGracias y disfruta!",
-          "largeIconUri": "https://s3.amazonaws.com/CAPS-SSE/echo_developer/1cef/a05e7944e4084a618c55dfbd7e65ddbf/APP_ICON_LARGE?versionId=KGFACftXBi0HK9Xb0kxzq5CHFIGpZMvT&AWSAccessKeyId=AKIAIEYXX6DHY7O4XWMA&Expires=1536714786&Signature=HWpcR7dk934EdzH5RricoBytVH8%3D"
+          "smallIconUri": "https://s3.amazonaws.com/CAPS-SSE/echo_developer/f783/247aff78c7324410a328e8c12abe13df/APP_ICON?versionId=F6lrs_REhvU7tu7cpMLRyakrEfqtpZrm&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Date=20190907T233114Z&X-Amz-SignedHeaders=host&X-Amz-Expires=86400&X-Amz-Credential=AKIAJFEYRBGIHK2BBYKA%2F20190907%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Signature=b699411de7d7486c0b34db13db2663c3dd152cfc99ce5db211cddc4bccb0c9f1",
+          "largeIconUri": "https://s3.amazonaws.com/CAPS-SSE/echo_developer/1cef/a05e7944e4084a618c55dfbd7e65ddbf/APP_ICON_LARGE?versionId=KGFACftXBi0HK9Xb0kxzq5CHFIGpZMvT&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Date=20190907T233114Z&X-Amz-SignedHeaders=host&X-Amz-Expires=86400&X-Amz-Credential=AKIAJFEYRBGIHK2BBYKA%2F20190907%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Signature=23c19bc241270c43377ac643692c04710059a26438f07616819adddfad778fdf",
+          "summary": "Disfruta de grandiosa y aterradora melodías inspiras en Muñecas Aterradoras.",
+          "description": "¿Crees que Alexa disfruta la música aterradora? Bueno, si lo hace. Especialmente música inspirada en Muñecas Aterradoras. Puedes pedirle que reproduzca melodías aterradoras, y ella encontrará las mejores melodías para tí que duran mas de una hora. Si tienes un dispositivo con pantalla como el Echo Spot, puedes ver imágenes de muñecas aterradoras mientras la melodía dure.\n\nPuedes decir cosas como:\n\nAlexa, abre muñeca aterradora.\nAlexa, pídele a muñeca aterradora un fondo de terror.\nAlexa, dile a muñeca aterradora que me espante.\n\nCréditos del video y música van para Derek & Brandon Fiechter. Visita su canal de YouToube para más contenido de calidad: https://www.youtube.com/watch?v=9SlEXqWtDVk.\n\nIMPORTANTE: debido a la duración del video (1 hora), el Echo Spot dilata unos segundos en cargar el video. Si es la primera vez que abres la skill, experimentarás un retraso de 5 a 7 segundos antes que inicie. Las siguientes ocasiones, dilata entre 3 y 4 segundos en cargar, dependiendo de tu conexión a internet.\n\nSi tienes alguna pregunta o sugerencia para más skills, sólo envíame un correo a octaviomenocal92@gmail.com.\n\nGracias y disfruta!",
+          "examplePhrases": [
+            "Alexa, abre muñeca aterradora.",
+            "Alexa, pide a muñeca aterradora que me espante.",
+            "Alexa, pide a muñeca aterradora que me asuste."
+          ],
+          "keywords": [
+            "aterrador",
+            "aterradora",
+            "muñeca",
+            "música",
+            "horror",
+            "película",
+            "miedo",
+            "espanto",
+            "horrible",
+            "fondo",
+            "pantalla",
+            "spot",
+            "show",
+            "halloween",
+            "exorcismo",
+            "exorcista",
+            "negro",
+            "espejo",
+            "mejor",
+            "triste",
+            "tristeza",
+            "gris",
+            "hora",
+            "melodía",
+            "canción",
+            "grandioso",
+            "nunca",
+            "extraordinario",
+            "diferente"
+          ]
         }
       },
       "isAvailableWorldwide": true,
-      "testingInstructions": "Resubmitted 2018/09/10\n- Fixed AudioPlayer issues\n- Updated description and sample phrases for Spanish locales\n\n/**************************************************************************************************************************************************/\nSubmitted 2018/09/04\n- Open the skill with an Echo screen device (Show/Spot) to play a video with the music.\n- Open the skill with a non screen device to listen to the same music with the Audio playback features",
+      "testingInstructions": "Resubmitted 2019/09/07\n- Added es-US\n\n/*********************************************************************************************************************************************/\nResubmitted 2018/09/20\n- Updated description and sample phrases for Spanish locales\n- One item in the feedback says:\n\nPlease note that the skill doesn't reach the endpoint when user says \"cancel\".\n\nAccording to the docs: https://developer.amazon.com/docs/custom-skills/videoapp-interface-reference.html#configure-your-skill-for-the-videoapp-directives\n\nWhen sending a VideoApp.Launch directive the only built-in intents that will be handled by the screen interface will be AMAZON.StopIntent and AMAZON.PauseIntent to stop/pause the video; and AMAZON.ResumeIntent to resume it.\n\nI think this is a platform limitation that you guys should add a fix, but when triggering the CancelIntent, Alexa does not even send a request to my skill because it's handled by the screen device.\n\n\n/*********************************************************************************************************************************************/\nResubmitted 2018/09/10\n- Fixed AudioPlayer issues\n- Updated description and sample phrases for Spanish locales\n\n/*********************************************************************************************************************************************/\nSubmitted 2018/09/04\n- Open the skill with an Echo screen device (Show/Spot) to play a video with the music.\n- Open the skill with a non screen device to listen to the same music with the Audio playback features",
       "category": "NOVELTY",
       "distributionCountries": []
-    },
-    "apis": {
-      "custom": {
-        "interfaces": [
-          {
-            "type": "AUDIO_PLAYER"
-          },
-          {
-            "type": "RENDER_TEMPLATE",
-            "minimumTemplateVersion": "1.0"
-          },
-          {
-            "type": "VIDEO_APP"
-          },
-          {
-            "type": "CAN_FULFILL_INTENT_REQUEST"
-          }
-        ]
-      }
-    },
-    "manifestVersion": "1.0",
-    "privacyAndCompliance": {
-      "allowsPurchases": false,
-      "isExportCompliant": true,
-      "containsAds": false,
-      "isChildDirected": false,
-      "usesPersonalInfo": false
     }
   }
 }

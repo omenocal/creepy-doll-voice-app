@@ -5,8 +5,8 @@
   "main": "index.js",
   "scripts": {
     "all": "rm yarn.lock; rm -r node_modules/; yarn install",
-    "lint": "eslint src/ aws-config.js gulpfile.js",
-    "lint-fix": "eslint --fix src/ aws-config.js gulpfile.js",
+    "lint": "eslint src/ aws-config.js gulpfile.js project.js",
+    "lint-fix": "eslint --fix src/ aws-config.js gulpfile.js project.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "dependencies": {
