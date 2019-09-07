@@ -5,7 +5,6 @@
 * `git clone` this repository
 * Install and use Node v8.10
 * Run `npm install`
-* Make a copy of the `app/config.example.json` file and name it `config.json`. Edit it with all of the requisite fields.
 * Make a copy of the `aws-config.sample.js` file and name it `aws-config.js`. Edit it with all of the requisite fields.
 * Make a copy of the `swagger.example.yaml` file and name it `swagger.yaml`. Edit it with all of the requisite fields.
 
@@ -17,19 +16,19 @@
 
 ### Directory Structure
 
-    app/ -> Flow logic
     assets/ -> Media files of the skill
     models/ -> Interaction model for every locale
     platforms/ -> Alexa Skill and Dialogflow model
+    src/ -> Flow logic
     .editorconfig -> IDE configuration
     .eslintrc.json -> Eslint configuration
     .gitattributes -> Git media files rules
     .gitignore -> Git ignore rules
-    app.json -> Jovo app configuration file
     aws-config.sample.js -> AWS sample file for profile
     gulpfile.js -> Automated tasks
     LICENSE
     package.json -> Dependencies
+    project.js -> Jovo app configuration file
     README.md
     swagger.example.yaml -> Sample file for swagger configuration for API Gateway
 
@@ -52,8 +51,9 @@ For now, Creepy Doll is spoken in English and Spanish, looking to add more langu
 - [en-CA]()
 - [en-AU]()
 - [en-IN]()
-- es-ES
-- es-MX
+- [es-ES]()
+- [es-MX]()
+- [es-US]()
 
 # Google Assistant
 - [en-US]()
