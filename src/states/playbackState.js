@@ -77,7 +77,8 @@ const handler = {
 
     if (this.hasScreenInterface() && this.isAlexaSkill()) {
       return this.$alexaSkill
-        .showVideo(videoUrl, title, subtitle, speechBuilder.build());
+        .showVideo(videoUrl, title, subtitle)
+        .tell(speechBuilder.build());
     }
 
     console.log('userData', this.$user.$data);
