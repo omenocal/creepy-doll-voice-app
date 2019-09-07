@@ -4,8 +4,8 @@ module.exports = {
   es: {
     translation: {
       Welcome: {
-        LaunchFirstTime: 'Bienvenido a Música Aterradora de Muñeca! Puedo reproducir una excelente pieza ' +
-          'musical para que te puedas relajar, o, enloquecer de miedo, depende de ti. ¿Te gustaría escucharla?',
+        LaunchFirstTime: 'Bienvenido a Música Aterradora de Muñeca! Puedo reproducir una excelente pieza '
+          + 'musical para que te puedas relajar, o, enloquecer de miedo, depende de ti. ¿Te gustaría escucharla?',
         Launch: 'Hola de nuevo. ¿Listo para una hora de Música Aterradora de Muñeca?',
 
         reprompt: '¿Te gustaría escucharla?',
@@ -34,8 +34,8 @@ module.exports = {
       ],
 
       Help: {
-        ask: 'Puedo reproducir una excelente pieza musical para que te puedas relajar, o, ' +
-          'enloquecer de miedo, depende de ti. ¿Te gustaría escucharla?',
+        ask: 'Puedo reproducir una excelente pieza musical para que te puedas relajar, o, '
+          + 'enloquecer de miedo, depende de ti. ¿Te gustaría escucharla?',
         reprompt: '¿Te gustaría escucharla?',
       },
 

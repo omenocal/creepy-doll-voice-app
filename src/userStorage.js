@@ -19,7 +19,7 @@ class UserStorage {
       TableName: this.userTable,
       Key: { userId },
     }).promise()
-      .then(item => item.Item);
+      .then((item) => item.Item);
   }
 
   put(data) {

@@ -3,28 +3,33 @@
   "version": "1.0.0",
   "description": "A voice app for playing Creepy Doll Music by Derek & Brandon YouTube channel",
   "main": "index.js",
+  "scripts": {
+    "all": "rm yarn.lock; rm -r node_modules/; yarn install",
+    "lint": "eslint src/ aws-config.js gulpfile.js",
+    "lint-fix": "eslint --fix src/ aws-config.js gulpfile.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
   "dependencies": {
-    "dashbot": "^9.9.2",
-    "jovo-framework": "^1.4.6",
-    "lodash": "^4.17.10",
-    "universal-analytics": "^0.4.17"
+    "dashbot": "^10.4.5",
+    "jovo-db-dynamodb": "^2.2.12",
+    "jovo-framework": "^2.2.15",
+    "jovo-platform-alexa": "^2.2.17",
+    "jovo-platform-googleassistant": "^2.2.15",
+    "jovo-plugin-debugger": "^2.2.13",
+    "lodash": "^4.17.15",
+    "universal-analytics": "^0.4.20"
   },
   "devDependencies": {
-    "del": "^3.0.0",
-    "eslint": "^3.15.0",
-    "eslint-config-airbnb-base": "^11.1.0",
-    "eslint-plugin-import": "^2.2.0",
+    "del": "^5.1.0",
+    "eslint": "^6.3.0",
+    "eslint-config-airbnb-base": "^14.0.0",
+    "eslint-plugin-import": "^2.18.2",
     "gulp": "^3.9.1",
     "gulp-install": "^1.1.0",
-    "gulp-zip": "^4.0.0",
-    "merge-stream": "^1.0.1",
+    "gulp-zip": "^5.0.0",
+    "merge-stream": "^2.0.0",
     "node-aws-lambda": "^0.1.8",
-    "run-sequence": "^1.2.2"
-  },
-  "scripts": {
-    "lint": "eslint app/ models/ aws-config.js gulpfile.js",
-    "lint-fix": "eslint --fix app/ models/ aws-config.js gulpfile.js",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "run-sequence": "^2.2.1"
   },
   "repository": {
     "type": "git",

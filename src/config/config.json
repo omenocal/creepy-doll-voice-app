@@ -1,0 +1,21 @@
+{
+  "alexaSkillId": "amzn1.ask.skill.34a9a5d2-2546-4a6f-95e3-82086aa67514",
+  "googleActionId": "",
+  "dashbot" : {
+    "alexa" : "mw0PpySXdKO8X1StJmlEGJ8P3RZB48Orsf47u4fu",
+    "google" : "7mQKtSLwpAkjAN9sqbDvbS1t7PRJtKIaet4wCsOA"
+  },
+  "googleAnalytics" : {
+    "trackingCode" : "UA-99309961-7"
+  },
+  "db": {
+    "type": "dynamodb",
+    "tableName": "CreepyDoll",
+    "awsConfig": {
+      "region": "us-region-1"
+    }
+  },
+  "s3": {
+    "url": "https://s3.amazonaws.com/creepydollvoiceapp"
+  }
+}

@@ -22,7 +22,7 @@ function endSession() {
 function registerGoogleAnalytics() {
   if (!this.googleAnalytics) {
     const userID = this.getUserId();
-    const trackingCode = config.googleAnalytics.trackingCode;
+    const { trackingCode } = config.googleAnalytics;
 
     this.googleAnalytics = universalAnalytics(trackingCode, userID, { strictCidFormat: false });
   }

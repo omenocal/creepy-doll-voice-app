@@ -4,8 +4,8 @@ module.exports = {
   en: {
     translation: {
       Welcome: {
-        LaunchFirstTime: 'Welcome to the Creepy Doll skill! I can play an excellent piece of music so that ' +
-          'you can relax, or frighten, it depends on you. Would you like to listen to it now?',
+        LaunchFirstTime: 'Welcome to the Creepy Doll skill! I can play an excellent piece of music so that '
+          + 'you can relax, or frighten, it depends on you. Would you like to listen to it now?',
         Launch: 'Welcome back. Ready for an hour of Creepy Doll Music?',
 
         reprompt: 'Would you like to listen to it now?',
@@ -34,8 +34,8 @@ module.exports = {
       ],
 
       Help: {
-        ask: 'I can play an excellent piece of music so that ' +
-          'you can relax, or frighten, it depends on you. Would you like to listen to it now?',
+        ask: 'I can play an excellent piece of music so that '
+          + 'you can relax, or frighten, it depends on you. Would you like to listen to it now?',
         reprompt: 'Welcome back. Ready for an hour of Creepy Doll Music?',
       },
 
