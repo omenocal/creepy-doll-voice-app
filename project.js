@@ -1,11 +1,19 @@
-{
-  "alexaSkill": {
-    "nlu": "alexa"
+'use strict';
+
+module.exports = {
+  alexaSkill: {
+    nlu: {
+      name: 'alexa',
+      lang: {
+        en: ['en-US', 'en-CA', 'en-GB', 'en-IN', 'en-AU'],
+        es: ['en-ES', 'en-MX']
+      },
+    },
   },
   "endpoint": "https://webhook.jovo.cloud/f56c569e-aca3-4dba-bf15-cb1330d80061",
-  "googleAction": {
-    "nlu": {
-      "name": "dialogflow"
+  googleAction: {
+    nlu: {
+      name: 'dialogflow',
     },
     "dialogflow": {
       "keyFile": "key-file.json",
@@ -45,6 +53,6 @@
           "cloudFunctionsInitialized": false
         }
       }
-    }
-  }
-}
+    },
+  },
+};

@@ -39,6 +39,7 @@ module.exports = {
         reprompt: 'Welcome back. Ready for an hour of Creepy Doll Music?',
       },
 
+      HealthCheck: 'Thanks for checking, everything is good!',
       Exit: 'Ok, come back any time to enjoy more Creepy Doll Melodies!',
     },
   },

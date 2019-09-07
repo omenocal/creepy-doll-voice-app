@@ -1,53 +1,50 @@
 'use strict';
 
-const config = require('../config');
 const helper = require('../constants/helper');
 const states = require('../constants/states');
 
 const handler = {
-  async NEW_SESSION() {
-    let user = await helper.getUser.call(this);
-    user = user || {};
+  ON_HEALTH_CHECK() {
+    return this.tell(this.t('HealthCheck'));
+  },
 
-    if (user.state && !this.isAudioPlayerRequest()) {
-      this.followUpState(user.state);
+  NEW_SESSION() {
+    if (this.$user.$data.state && !this.isAudioPlayerRequest()) {
+      this.followUpState(this.$user.$data.state);
     }
   },
-  async LAUNCH() {
+
+  LAUNCH() {
     helper.registerGoogleAnalytics.call(this).event('Main flow', 'Session Start', { sc: 'start' });
     helper.registerGoogleAnalytics.call(this).event('Main flow', 'Launch');
 
-    let user = await helper.getUser.call(this);
-    const firstTimeLabel = user ? '' : 'FirstTime';
+    const firstTimeLabel = this.$user.isNew() ? 'FirstTime' : '';
 
-    user = user || { userId: this.getUserId() };
+    this.$user.$data.offsetInMilliseconds = 0;
+    this.$user.$data.state = states.PLAY;
 
-    user.offsetInMilliseconds = 0;
-    user.state = states.PLAY;
-
-    const url = `${config.s3.url}/background.jpg`;
-    const bodyTemplate = this.alexaSkill().templateBuilder('BodyTemplate1');
-    bodyTemplate
-      .setToken('token')
-      .setBackButton('HIDDEN')
-      .setTitle(this.t('MediaTitle'))
-      .setBackgroundImage({
-        description: this.t('MediaTitle'),
-        url,
-      });
+    const url = this.$app.$config.s3.backgroundUrl;
 
     if (this.isGoogleAction()) {
-      this
-        .googleAction()
+      this.$googleAction
         .showImageCard(this.t('MediaTitle'), this.t('MediaSubtitle'), url)
         .showSuggestionChips(this.t('SuggestionChips'));
     } else {
-      this.alexaSkill().showDisplayTemplate(bodyTemplate);
+      const bodyTemplate = this.$alexaSkill
+        .templateBuilder('BodyTemplate1')
+        .setToken('token')
+        .setBackButton('HIDDEN')
+        .setTitle(this.t('MediaTitle'))
+        .setBackgroundImage({
+          description: this.t('MediaTitle'),
+          url,
+        });
+
+      this.$alexaSkill.showDisplayTemplate(bodyTemplate);
     }
 
-    this
+    return this
       .followUpState(states.PLAY)
-      .setSessionAttribute('user', user)
       .setSessionAttribute('startTime', +new Date())
       .setSessionAttribute('speechOutput', this.t(`Welcome.Launch${firstTimeLabel}`))
       .setSessionAttribute('repromptSpeech', this.t('Welcome.reprompt'))
@@ -56,65 +53,58 @@ const handler = {
   CAN_FULFILL_INTENT() {
     console.log(this.getHandlerPath());
 
-    this.canFulfillRequest();
+    return this.canFulfillRequest();
   },
   HelpIntent() {
     helper.registerGoogleAnalytics.call(this).event('Main flow', 'HelpIntent');
 
-    this
+    this.$user.$data.state = states.PLAY;
+
+    return this
       .followUpState(states.PLAY)
-      .setSessionAttribute('user.state', states.PLAY)
       .setSessionAttribute('speechOutput', this.t('Help.ask'))
       .setSessionAttribute('repromptSpeech', this.t('Help.reprompt'))
       .ask(this.getSessionAttribute('speechOutput'), this.getSessionAttribute('repromptSpeech'));
   },
-  async StopIntent() {
-    const user = await helper.getUser.call(this) || this.getSessionAttribute('user');
-    let offset = 0;
+  StopIntent() {
+    this.$user.$data.offset = 0;
 
     if (this.isAlexaSkill()) {
-      offset = this.alexaSkill().audioPlayer().getOffsetInMilliseconds();
+      this.$user.$data.offset = this.$alexaSkill.$audioPlayer.getOffsetInMilliseconds();
     }
 
-    user.offsetInMilliseconds = offset;
 
-    this
-      .setSessionAttribute('user', user)
-      .alexaSkill().audioPlayer().stop();
-
-    await helper.saveUser.call(this);
+    this.alexaSkill().audioPlayer().stop();
 
     helper.registerGoogleAnalytics.call(this).event('Main flow', 'StopIntent');
     helper.endSession.call(this);
 
-    this.tell(this.t('Exit'));
+    return this.tell(this.t('Exit'));
   },
-  async END() {
-    await helper.saveUser.call(this);
-
+  END() {
     helper.registerGoogleAnalytics.call(this).event('Main flow', 'SessionEnded');
     helper.endSession.call(this);
 
     if (this.isGoogleAction()) {
-      this.tell(this.t('Exit'));
-    } else {
-      this.respond();
+      return this.tell(this.t('Exit'));
     }
+
+    return this.endSession();
   },
   notSupported() {
-    this.toStateIntent(states.PLAY, 'notSupported');
+    return this.toStateIntent(states.PLAY, 'notSupported');
   },
   repeat() {
-    this.toStateIntent(states.PLAY, 'repeat');
+    return this.toStateIntent(states.PLAY, 'repeat');
   },
   loopOn() {
-    this.toStateIntent(states.PLAY, 'loopOn');
+    return this.toStateIntent(states.PLAY, 'loopOn');
   },
   loopOff() {
-    this.toStateIntent(states.PLAY, 'loopOff');
+    return this.toStateIntent(states.PLAY, 'loopOff');
   },
   playRequest() {
-    this.toStateIntent(states.PLAY, 'playRequest');
+    return this.toStateIntent(states.PLAY, 'playRequest');
   },
 };
 

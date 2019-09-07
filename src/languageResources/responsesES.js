@@ -39,6 +39,7 @@ module.exports = {
         reprompt: '¿Te gustaría escucharla?',
       },
 
+      HealthCheck: 'Gracias por revisar, todo está bien!',
       Exit: 'Okey, regresa cuando quieras para disfrutar más Música Aterradora!',
     },
   },

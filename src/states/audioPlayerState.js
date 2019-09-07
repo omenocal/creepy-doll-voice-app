@@ -1,29 +1,23 @@
 'use strict';
 
-const config = require('../config');
-const helper = require('../constants/helper');
-
-const artworkUrl = `${config.s3.url}/artwork.jpg`;
-const audioUrl = `${config.s3.url}/audio.mp3`;
-const backgroundUrl = `${config.s3.url}/background.jpg`;
-
 const handler = {
   'AudioPlayer.PlaybackStarted': function PlaybackStarted() {
     console.log('AudioPlayer.PlaybackStarted');
-    this.endSession();
+
+    return this.endSession();
   },
 
-  'AudioPlayer.PlaybackNearlyFinished': async function PlaybackNearlyFinished() {
+  'AudioPlayer.PlaybackNearlyFinished': function PlaybackNearlyFinished() {
     console.log('AudioPlayer.PlaybackNearlyFinished');
 
-    const user = await helper.getUser.call(this);
+    const { artworkUrl, audioUrl, backgroundUrl } = this.$app.$config.s3;
 
-    if (user.loop) {
+    if (this.$user.$data.loop) {
       const title = this.t('MediaTitle');
       const subtitle = this.t('MediaSubtitle');
 
-      this.alexaSkill().audioPlayer()
-        .setOffsetInMilliseconds(user.offsetInMilliseconds)
+      return this.$alexaSkill.$audioPlayer
+        .setOffsetInMilliseconds(this.$user.$data.offsetInMilliseconds)
         .setTitle(title)
         .setSubtitle(subtitle)
         .addArtwork(artworkUrl)
@@ -31,18 +25,19 @@ const handler = {
         .play(audioUrl, 'token', 'REPLACE_ENQUEUED');
     }
 
-    this.endSession();
+    return this.endSession();
   },
 
   'AudioPlayer.PlaybackFinished': function PlaybackFinished() {
     console.log('AudioPlayer.PlaybackFinished');
-    this.alexaSkill().audioPlayer().stop();
-    this.endSession();
+
+    return this.$alexaSkill.$audioPlayer.stop();
   },
 
   'AudioPlayer.PlaybackStopped': function PlaybackStopped() {
     console.log('AudioPlayer.PlaybackStopped');
-    this.endSession();
+
+    return this.endSession();
   },
 };
 

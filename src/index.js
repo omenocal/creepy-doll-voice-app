@@ -1,27 +1,27 @@
 'use strict';
 
-const { Webhook } = require('jovo-framework');
+const { Webhook, ExpressJS, Lambda } = require('jovo-framework');
+
 const { app } = require('./app.js');
 
-// =================================================================================
-// Server Configuration
-// =================================================================================
-
-if (app.isWebhook()) {
-  const port = process.env.PORT || 3000;
+if (process.argv.indexOf('--webhook') > -1) {
+  const port = process.env.JOVO_PORT || 3000;
+  Webhook.jovoApp = app;
   Webhook.listen(port, () => {
-    console.log(`Example server listening on port ${port}!`);
+    console.info(`Local server listening on port ${port}!`);
   });
-  Webhook.post('/webhook', (req, res) => {
-    app.handleWebhook(req, res);
+
+  Webhook.post('/webhook', async (req, res) => {
+    await app.handle(new ExpressJS(req, res));
   });
 }
 
-exports.handler = (event, context, callback) => {
+// AWS Lambda
+exports.handler = async (event, context, callback) => {
   if (!event || (event && !event.result && !event.status && !event.session && !event.request)) {
     console.log('SCHEDULED EVENT');
     callback(null, 'SCHEDULED EVENT');
   } else {
-    app.handleLambda(event, context, callback);
+    await app.handle(new Lambda(event, context, callback));
   }
 };

@@ -1,64 +1,65 @@
 'use strict';
 
-const config = require('../config');
 const helper = require('../constants/helper');
 
-const artworkUrl = `${config.s3.url}/artwork.jpg`;
-const audioUrl = `${config.s3.url}/audio.mp3`;
-const backgroundUrl = `${config.s3.url}/background.jpg`;
-const videoUrl = `${config.s3.url}/video.mp4`;
-
 const handler = {
-  async notSupported() {
+  notSupported() {
     helper.registerGoogleAnalytics.call(this).event('Main flow', this.getIntentName());
 
     let offset = 0;
 
     if (this.isAlexaSkill()) {
-      offset = this.alexaSkill().audioPlayer().getOffsetInMilliseconds();
+      offset = this.$alexaSkill.$audioPlayer.getOffsetInMilliseconds();
     }
 
     if (offset === 0) {
-      this
+      return this
         .setSessionAttribute('speechOutput', this.t('NotSupported.ask'))
         .setSessionAttribute('repromptSpeech', this.t('NotSupported.reprompt'))
         .ask(this.getSessionAttribute('speechOutput'), this.getSessionAttribute('repromptSpeech'));
-      return;
     }
 
-    this.toIntent('playRequest', this.t('NotSupported.continue'));
+    this.$data.previousSpeechOutput = this.t('NotSupported.continue');
+
+    return this.toIntent('playRequest');
   },
-  async repeat() {
+  repeat() {
     helper.registerGoogleAnalytics.call(this).event('Main flow', this.getIntentName());
 
     let offset = 0;
 
     if (this.isAlexaSkill()) {
-      offset = this.alexaSkill().audioPlayer().getOffsetInMilliseconds();
+      offset = this.$alexaSkill.$audioPlayer.getOffsetInMilliseconds();
     }
 
     if (offset === 0) {
-      this.ask(this.getSessionAttribute('speechOutput'), this.getSessionAttribute('repromptSpeech'));
-      return;
+      return this.ask(this.getSessionAttribute('speechOutput'), this.getSessionAttribute('repromptSpeech'));
     }
 
-    this.toIntent('playRequest', null, true);
+    this.$data.shouldResetMilliseconds = true;
+
+    return this.toIntent('playRequest');
   },
   loopOn() {
     helper.registerGoogleAnalytics.call(this).event('Main flow', this.getIntentName());
 
-    this
+    this.$data.previousSpeechOutput = this.t('Loop.on');
+
+    return this
       .setSessionAttribute('loop', true)
-      .toIntent('playRequest', this.t('Loop.on'));
+      .toIntent('playRequest');
   },
   loopOff() {
     helper.registerGoogleAnalytics.call(this).event('Main flow', this.getIntentName());
 
-    this
+    this.$data.previousSpeechOutput = this.t('Loop.off');
+
+    return this
       .setSessionAttribute('loop', false)
-      .toIntent('playRequest', this.t('Loop.off'));
+      .toIntent('playRequest');
   },
-  async playRequest(previousSpeechOutput, shouldResetMilliseconds) {
+  playRequest() {
+    const { previousSpeechOutput, shouldResetMilliseconds } = this.$data;
     let speechBuilder = this.speechBuilder();
 
     if (previousSpeechOutput) {
@@ -68,31 +69,32 @@ const handler = {
       speechBuilder = speechBuilder.addText(this.t(enjoyLabel));
     }
 
+    const {
+      artworkUrl, audioUrl, backgroundUrl, videoUrl,
+    } = this.$app.$config.s3;
     const title = this.t('MediaTitle');
     const subtitle = this.t('MediaSubtitle');
 
     if (this.hasScreenInterface() && this.isAlexaSkill()) {
-      this.alexaSkill().showVideo(videoUrl, title, subtitle, speechBuilder.build());
-      return;
+      return this.$alexaSkill
+        .showVideo(videoUrl, title, subtitle, speechBuilder.build());
     }
 
-    let user = this.getSessionAttribute('user');
-    console.log('user', user);
-    user = user || await helper.getUser.call(this);
-    user.loop = this.getSessionAttribute('loop') || user.loop;
+    console.log('userData', this.$user.$data);
+
+    this.$user.$data.loop = this.getSessionAttribute('loop') || this.$user.$data.loop;
 
     if (shouldResetMilliseconds) {
-      user.offsetInMilliseconds = 0;
+      this.$user.$data.offsetInMilliseconds = 0;
     } else if (this.isAlexaSkill()) {
-      user.offsetInMilliseconds = this.alexaSkill().audioPlayer().getOffsetInMilliseconds();
+      this.$user.$data.offsetInMilliseconds = this.$alexaSkill.$audioPlayer
+        .getOffsetInMilliseconds();
     }
 
-    this.setSessionAttribute('user', user);
-    await helper.saveUser.call(this);
     helper.endSession.call(this);
 
     if (this.isGoogleAction()) {
-      this.googleAction().audioPlayer()
+      this.$googleAction.$mediaResponse
         .play(audioUrl, title, {
           description: subtitle,
           icon: {
@@ -101,17 +103,17 @@ const handler = {
           },
         });
 
-      this.tell(speechBuilder.build());
-    } else {
-      this.alexaSkill().audioPlayer()
-        .setOffsetInMilliseconds(user.offsetInMilliseconds)
-        .setTitle(title)
-        .setSubtitle(subtitle)
-        .addArtwork(artworkUrl)
-        .addBackgroundImage(backgroundUrl)
-        .play(audioUrl, 'token')
-        .tell(speechBuilder.build());
+      return this.tell(speechBuilder.build());
     }
+
+    return this.$alexaSkill.$audioPlayer
+      .setOffsetInMilliseconds(this.$user.$data.offsetInMilliseconds)
+      .setTitle(title)
+      .setSubtitle(subtitle)
+      .addArtwork(artworkUrl)
+      .addBackgroundImage(backgroundUrl)
+      .play(audioUrl, 'token')
+      .tell(speechBuilder.build());
   },
 };
 
