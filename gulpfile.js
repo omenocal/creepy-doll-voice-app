@@ -18,7 +18,7 @@ gulp.task('bundle', () => gulp
   .pipe(install({ production: true })));
 
 gulp.task('compile', () => {
-  const tasks = ['app'].map((directory) => gulp
+  const tasks = ['src'].map((directory) => gulp
     .src(`${directory}/**/*`)
     .pipe(gulp.dest(`./dist/${directory}`)));
   return merge(tasks);
