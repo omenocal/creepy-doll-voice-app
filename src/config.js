@@ -58,7 +58,9 @@ module.exports = {
   },
 
   // CUSTOM
-  googleAnalytics: process.env.GOOGLE_ANALYTICS_KEY,
+  googleAnalytics: {
+    trackingCode: process.env.GOOGLE_ANALYTICS_KEY,
+  },
 
   s3: {
     baseUrl: process.env.S3_BUCKET_URL,
